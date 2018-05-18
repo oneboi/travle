@@ -96,6 +96,10 @@ export default {
 
 <style lang="css" scoped>
 
+.icons{
+  margin: .1rem;
+}
+
 .icons >>> .swiper-container{
 	overflow: hidden;
 	width: 100%;
