@@ -1,10 +1,10 @@
 <template>
 
 	<div class="wrapper">
-		  <swiper :options="swiperOption" ref="mySwiper" >
+		  <swiper :options="swiperOption" ref="mySwiper"  v-if="list.length">
     <!-- slides -->
-    <swiper-slide v-for="item in datalist" :key="item.id">
-    	<img class="swipe-img" :src="item.imgurl" >
+    <swiper-slide v-for="item in list" :key="item.id" >
+    	<img class="swipe-img" :src="item.imgUrl" >
     </swiper-slide>
     
     <!-- Optional controls -->
@@ -22,7 +22,8 @@
       return {
         swiperOption: {
           pagination:'.swiper-pagination',
-          loop:true
+          loop:true,
+          autoplay:false
         },
         datalist:[
 
@@ -34,16 +35,26 @@
          ]
       }
     },
+    props:{
+      list:Array
+    },
     computed: {
       swiper() {
         return this.$refs.mySwiper.swiper
+      },
+      showSwiper(){
+
+        return this.list.length;//解决显示第四章的问题
       }
     },
     mounted() {
       // current swiper instance
       // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
-      console.log('this is current swiper instance object', this.swiper)
-      this.swiper.slideTo(3, 1000, false)
+   
+       
+      
+      
+      
     }
   }
 </script>
@@ -60,7 +71,7 @@
      overflow: hidden;
      background: #999;
      /*图片的宽高比*/
-     padding-bottom: 26.7%;/*宽比上高*/
+     padding-bottom: 31.25%;/*宽比上高*/
 	}
 
 </style>

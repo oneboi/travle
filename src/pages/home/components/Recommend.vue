@@ -3,17 +3,15 @@
 		<!-- 热销推荐 -->
 		<div class="title">热销推荐</div>
 		<ul>
-			<li class="item border-bottom" v-for="item in datalist" :key="item.id">
+			<router-link  tag="li" class="item border-bottom" v-for="item in datalist" :key="item.id" :to=" '/detail/'+item.id">
 				<div class="item-img-wrapper">
 					<img class="mp-like-img" :src="item.imgurl" alt="石林冰雪海洋世界">
 				</div>
 				<div class="item-info">
 					<p class="item-title">{{item.title}}</p>
-					<p class="item-desc">{{item.desc}}</p>
-					
-				    
+					<p class="item-desc">{{item.desc}}</p>   
 				</div>
-			</li>
+			</router-link>
 		</ul>
 		
 	</div>
@@ -61,6 +59,9 @@ export default {
     	]
 
     };
+  },
+  props:{
+  	list:Array
   }
 };
 </script>

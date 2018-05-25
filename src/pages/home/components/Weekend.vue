@@ -3,9 +3,9 @@
 		<!-- 周末去哪 -->
 		<div class="title">周末去哪</div>
 		<ul>
-			<li class="item border-bottom" v-for="item in datalist" :key="item.id">
+			<li class="item border-bottom" v-for="item in list" :key="item.id">
 				<div class="item-img-wrapper">
-					<img class="mp-like-img" :src="item.imgurl" alt="石林冰雪海洋世界">
+					<img class="mp-like-img" :src="item.imgUrl" alt="石林冰雪海洋世界">
 				</div>
 				<div class="item-info">
 					<p class="item-title">{{item.title}}</p>
@@ -26,7 +26,7 @@ export default {
 
   data () {
     return {
-
+       
     	datalist:[
           {
           	id:'001',
@@ -61,6 +61,9 @@ export default {
     	]
 
     };
+  },
+  props:{
+  	list:Array
   }
 };
 </script>

@@ -10,14 +10,22 @@
 				&#xe632;
 			</span>
 		输入城市/景点/主题</div>
-		<div class="header-right">城市
+
+		<router-link to="/city" class="link">
+		<div class="header-right">
+			<!-- vuex数据 -->
+			{{city}}
+			<!-- {{city}} -->
 			<span class="iconfont arrow-icon">&#xe64a;
 			</span>
 		 </div>
+		</router-link>
 	</div>
 </template>
 
 <script>
+
+import {mapState,mapMutaions,mapGetters } from 'vuex'
 export default {
 
   name: 'Header',
@@ -26,6 +34,14 @@ export default {
     return {
 
     };
+  },
+
+  computed: {
+  	...mapState(['city']),
+  	...mapGetters(['doubleCity'])
+  },
+  props:{
+  	citys:String
   }
 };
 </script>
@@ -41,7 +57,7 @@ export default {
 
 }
 .header>.header-left{
-   width: 0.64rem;
+   min-width: 0.64rem;
 }
 .header>.header-left>.back-icon{
 	font-size: 0.4rem;
@@ -63,9 +79,15 @@ export default {
 .header>.header-right{
   width: 1.24rem;
   text-align: center;
+
 }
 .header>.header-right>.arrow-icon{
 	font-size: 0.24rem;
 	margin-left: -0.04rem;
+
+}
+
+.link{
+  color: #fff;
 }
 </style>
